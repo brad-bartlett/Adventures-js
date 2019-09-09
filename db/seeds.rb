@@ -1,0 +1,1 @@
+yosemite = Bird.create(name: "Black-Capped Chickadee", species: "Poecile Atricapillus")

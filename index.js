@@ -9,7 +9,7 @@ function main() {
     fetch('http://localhost:3000/parks')
       .then(resp => resp.json())
       .then(parks => {
-        console.log('data', parks)
+        console.log(parks)
         renderParks(parks)
       })
   }
@@ -18,8 +18,11 @@ function main() {
       parks.forEach(park => {
           renderParks(park)
       })
-  }
-
-
-
+  
+  
+  
+  
+  
+  
+}
   main()

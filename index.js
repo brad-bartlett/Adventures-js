@@ -18,11 +18,7 @@ function main() {
       parks.forEach(park => {
           renderParks(park)
       })
+  }
   
   
-  
-  
-  
-  
-}
   main()

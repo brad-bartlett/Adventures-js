@@ -13,7 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_09_09_172100) do
 
   create_table "adventures", force: :cascade do |t|
-    t.string "comment"
+    t.string "snippet"
+    t.integer "rating"
     t.integer "hiker_id"
     t.integer "park_id"
     t.datetime "created_at", null: false

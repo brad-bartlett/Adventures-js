@@ -10,7 +10,4 @@ tallulah = Park.create(name: "Tallulah Gorge", state: "Georgia")
 glacier = Park.create(name: "Glacier National Park", state: "Montana")
 
 hiker1 = Hiker.create(name: "Ron")
-hiker1 = Hiker.create(name: "Cherly")
-hiker1 = Hiker.create(name: "Jerry")
-hiker1 = Hiker.create(name: "Sharon")
-hiker1 = Hiker.create(name: "Jeremiah")
+

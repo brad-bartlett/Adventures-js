@@ -1,13 +1,17 @@
+const parkUl = document.getElementById("list")
+const adventureContainer = document.querySelector('#adventure-container')
 
 
     document.addEventListener("DOMContentLoaded", ()=>{
-      const adventureContainer = document.querySelector('#adventure-container')
-      console.log('dom is loaded')
+      
+      console.log('dom loaded')
       fetchParks()
+      addEventListener()
+
     })
-
-
-  function fetchParks() {
+  
+  
+    function fetchParks() {
     // console.log('fetching')
     fetch('http://localhost:3000/parks/')
       .then(resp => resp.json())
@@ -25,13 +29,40 @@
 
 
   function renderPark(park) {
-    const parkLi = document.getElementById("park")
-    parkLi.dataset.id = park.id
-    parkLi.textContent = park.name
+    
+    const singlePark = document.createElement("li")
+    singlePark.dataset.id = park.id
+    singlePark.textContent = park.name
+    parkUl.appendChild(singlePark)
     console.log("loaded")
   }
 
-  // function parkDetails(park) {
 
-  // }
-  
+  function addEventListener() {
+    parkUl.addEventListener('click', function(event) {
+      console.log("all the clicks")
+      fetchParkDetails(event.target)
+    }
+    )
+  }
+
+  function fetchParkDetails(singlePark) {
+    const id = singlePark.dataset.id
+    fetch('http://localhost:3000/parks/' + id)
+      .then(resp => resp.json())
+      .then(park => {
+        renderParkDetails(park)
+      })
+  }
+
+  function renderParkDetails(park) {
+    const parkName = document.createElement('h1')
+    const parkState = document.createElement('h3')
+    parkName.textContent = park.name
+    parkState.textContent = park.state
+  }
+
+
+
+
+

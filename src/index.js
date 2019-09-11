@@ -1,7 +1,7 @@
 const parkUl = document.getElementById("list")
 
-const adventureContainer = document.querySelector('adventure-container')
 
+const ADVCONT = document.querySelector('#adventures-container')
 
     document.addEventListener("DOMContentLoaded", ()=>{
       
@@ -65,10 +65,10 @@ const adventureContainer = document.querySelector('adventure-container')
     parkName.textContent = park.name
     parkState.textContent = park.state
     
-    console.log("all the clicks")
-    
-    adventureContainer.append(parkName)
-    adventureContainer.append(parkState)
+
+
+    ADVCONT.append(parkName)
+    ADVCONT.append(parkState)
 
   }
 

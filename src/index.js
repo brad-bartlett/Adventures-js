@@ -60,6 +60,8 @@ const adventureContainer = document.querySelector('#adventure-container')
     const parkState = document.createElement('h3')
     parkName.textContent = park.name
     parkState.textContent = park.state
+
+    
   }
 
 

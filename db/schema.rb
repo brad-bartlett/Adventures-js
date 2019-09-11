@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_09_09_172100) do
 
   create_table "adventures", force: :cascade do |t|
+    t.date "date"
     t.string "snippet"
     t.integer "rating"
     t.integer "hiker_id"

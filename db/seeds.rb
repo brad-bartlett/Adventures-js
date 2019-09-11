@@ -1,3 +1,8 @@
+Park.delete_all
+Hiker.delete_all
+Adventure.delete_all
+
+
 yosemite = Park.create(name: "Yosemite National Park", state: "California")
 grand_canyon = Park.create(name: "The Grand Canyon", state: "Arizona")
 lake_tahoe = Park.create(name: "Lake Tahoe", state: "Nevada")

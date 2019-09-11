@@ -40,7 +40,6 @@ const adventureContainer = document.querySelector('#adventure-container')
 
   function addEventListener() {
     parkUl.addEventListener('click', function(event) {
-      console.log("all the clicks")
       fetchParkDetails(event.target)
     }
     )
@@ -60,8 +59,8 @@ const adventureContainer = document.querySelector('#adventure-container')
     const parkState = document.createElement('h3')
     parkName.textContent = park.name
     parkState.textContent = park.state
+    console.log("all the clicks")
 
-    
   }
 
 

@@ -1,5 +1,6 @@
 const parkUl = document.getElementById("list")
-const adventureContainer = document.querySelector('#adventure-container')
+
+const adventureContainer = document.querySelector('adventure-container')
 
 
     document.addEventListener("DOMContentLoaded", ()=>{
@@ -25,7 +26,8 @@ const adventureContainer = document.querySelector('#adventure-container')
   function renderParks(parks) {
       parks.forEach(park => {
         renderPark(park)
-      })}
+      })
+    }
 
 
   function renderPark(park) {
@@ -34,7 +36,7 @@ const adventureContainer = document.querySelector('#adventure-container')
     singlePark.dataset.id = park.id
     singlePark.textContent = park.name
     parkUl.appendChild(singlePark)
-    console.log("loaded")
+
   }
 
 
@@ -45,6 +47,7 @@ const adventureContainer = document.querySelector('#adventure-container')
     )
   }
 
+
   function fetchParkDetails(singlePark) {
     const id = singlePark.dataset.id
     fetch('http://localhost:3000/parks/' + id)
@@ -54,12 +57,18 @@ const adventureContainer = document.querySelector('#adventure-container')
       })
   }
 
+
   function renderParkDetails(park) {
     const parkName = document.createElement('h1')
     const parkState = document.createElement('h3')
+    
     parkName.textContent = park.name
     parkState.textContent = park.state
+    
     console.log("all the clicks")
+    
+    adventureContainer.append(parkName)
+    adventureContainer.append(parkState)
 
   }
 

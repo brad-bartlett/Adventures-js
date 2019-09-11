@@ -25,9 +25,10 @@
 
 
   function renderPark(park) {
-    const parkUl = document.getElementById("park")
-    parkUl.dataset.id = park.id
-    parkUl.textContent = park.name
+    const parkLi = document.getElementById("park")
+    parkLi.dataset.id = park.id
+    parkLi.textContent = park.name
+    console.log("loaded")
   }
 
   // function parkDetails(park) {

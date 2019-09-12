@@ -7,8 +7,8 @@ const ADVCONT = document.querySelector('#adventures-container')
       
       console.log('dom loaded')
       fetchParks()
-      addEventListener(parkUl)
       addEventListener()
+  
 
     }
     )
@@ -44,8 +44,8 @@ const ADVCONT = document.querySelector('#adventures-container')
   }
 
 
-  function addEventListener(node) {
-    node.addEventListener('click', function(event) {
+  function addEventListener() {
+    parkUl.addEventListener('click', function(event) {
       fetchParkDetails(event.target)
     }
     )
@@ -110,6 +110,7 @@ const ADVCONT = document.querySelector('#adventures-container')
     ratingInput.setAttribute('placeholder', '1-10')
 
     const submitBtn = document.createElement('input')
+    submitBtn.className = ('submitBtn')
     submitBtn.setAttribute('type', 'submit')
     submitBtn.setAttribute('value', 'Submit')
 
@@ -120,6 +121,7 @@ const ADVCONT = document.querySelector('#adventures-container')
 
     document.getElementById("adventures-container").appendChild(advForm)
   
+    
   }
 
   // <form id=''>

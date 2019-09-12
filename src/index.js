@@ -56,23 +56,46 @@ const ADVCONT = document.querySelector('#adventures-container')
         renderParkDetails(park)
       })
   }
-
+  
+function clearDiv() {
+  var e = document.getElementById("adventures-container")
+  var clearDiv = e.lastElementChild;  
+  while (clearDiv) { 
+      e.removeChild(clearDiv); 
+      clearDiv = e.lastElementChild; }
+}
 
   function renderParkDetails(park) {
+    clearDiv()
     const parkName = document.createElement('h1')
     const parkState = document.createElement('h3')
-    
+    const parkImage = document.createElement('img');
+
     parkName.textContent = park.name
     parkState.textContent = park.state
-    
-
+    parkImage.src = park.img_url
 
     ADVCONT.append(parkName)
     ADVCONT.append(parkState)
-
+    ADVCONT.append(parkImage)
+    
   }
 
 
+
+  // function renderForm() {
+  //   const form = document.createElement("form")
+  //   form.setAttribute("method", "post")
+  //   document
+  // }
+
+
+  // <form id="adventure_form">
+  //       <input id="date_input" type="date" name="date" placeholder="YYYY-MM-DD"/>
+  //       <input id="snippet_input" type="blob" name="snippet" placeholder="How was your adventure?"/>
+  //       <input id="rating_input" type="integer" name="rating" placeholder="1-10"/>
+  //       <input type="submit" value="Submit"/>
+  //       </form>
 
 
 

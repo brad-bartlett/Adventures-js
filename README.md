@@ -1,1 +1,1 @@
-Welcome to Adventures!
+Welcome to Adventure Tracker!

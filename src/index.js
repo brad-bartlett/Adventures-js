@@ -65,6 +65,7 @@ const ADVCONT = document.querySelector('#adventures-container')
   function renderParkDetails(park) {
     
     clearDiv()
+    
     const parkName = document.createElement('h1')
     const parkState = document.createElement('h3')
     const parkImage = document.createElement('img');
@@ -76,6 +77,8 @@ const ADVCONT = document.querySelector('#adventures-container')
     ADVCONT.append(parkName)
     ADVCONT.append(parkState)
     ADVCONT.append(parkImage)
+
+    renderForm()
     
   }
   
@@ -87,19 +90,49 @@ const ADVCONT = document.querySelector('#adventures-container')
 }
   
 
-  // function renderForm() {
-  //   const form = document.createElement("form")
-  //   form.setAttribute("method", "post")
-  //   document
-  // }
+
+  function renderForm() {
+    
+    const advForm = document.createElement("form")
+    advForm.setAttribute("id", "adventureForm")
+    
+    const dateInput = document.createElement("input")
+    dateInput.setAttribute('type', "date")
+    dateInput.setAttribute('placeholder', "MM-DD-YYYY")
+
+    const snippetInput = document.createElement("input")
+    snippetInput.setAttribute('type', 'string')
+    snippetInput.setAttribute('placeholder', "How was your adventure?")
+
+    const ratingInput = document.createElement("input")
+    ratingInput.setAttribute('type', 'integer')
+    ratingInput.setAttribute('placeholder', '1-10')
+
+    const submitBtn = document.createElement('h3')
+    submitBtn.setAttribute('type', 'submit')
+    submitBtn.setAttribute('value', 'Submit')
+
+    advForm.appendChild(dateInput)
+    advForm.appendChild(snippetInput)
+    advForm.appendChild(ratingInput)
+    advForm.appendChild(submitBtn)
+
+    document.getElementById("adventures-container").appendChild(advForm)
+  
+  }
+
+  // <form id=''>
+  //   <input type='text' name='username' />
+  //   <input type='submit' name='submit' value='submit' />
+  // </form>
 
 
-  // <form id="adventure_form">
-  //       <input id="date_input" type="date" name="date" placeholder="YYYY-MM-DD"/>
-  //       <input id="snippet_input" type="blob" name="snippet" placeholder="How was your adventure?"/>
-  //       <input id="rating_input" type="integer" name="rating" placeholder="1-10"/>
-  //       <input type="submit" value="Submit"/>
-  //       </form>
+/* <form id="adventure_form">
+        <input id="date_input" type="date" name="date" placeholder="MM-DD-YYYY"/>
+        <input id="snippet_input" type="string" name="snippet" placeholder="How was your adventure?"/>
+        <input id="rating_input" type="integer" name="rating" placeholder="1-10"/>
+        <input type="submit" value="Submit"/>
+      </form> */
 
 
 

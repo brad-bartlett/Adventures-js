@@ -7,6 +7,7 @@ const ADVCONT = document.querySelector('#adventures-container')
       
       console.log('dom loaded')
       fetchParks()
+      addEventListener(parkUl)
       addEventListener()
 
     }
@@ -43,8 +44,8 @@ const ADVCONT = document.querySelector('#adventures-container')
   }
 
 
-  function addEventListener() {
-    parkUl.addEventListener('click', function(event) {
+  function addEventListener(node) {
+    node.addEventListener('click', function(event) {
       fetchParkDetails(event.target)
     }
     )
@@ -98,7 +99,7 @@ const ADVCONT = document.querySelector('#adventures-container')
     
     const dateInput = document.createElement("input")
     dateInput.setAttribute('type', "date")
-    dateInput.setAttribute('placeholder', "MM-DD-YYYY")
+    dateInput.setAttribute('placeholder', "MM/DD/YYYY")
 
     const snippetInput = document.createElement("input")
     snippetInput.setAttribute('type', 'string')
@@ -108,7 +109,7 @@ const ADVCONT = document.querySelector('#adventures-container')
     ratingInput.setAttribute('type', 'integer')
     ratingInput.setAttribute('placeholder', '1-10')
 
-    const submitBtn = document.createElement('h3')
+    const submitBtn = document.createElement('input')
     submitBtn.setAttribute('type', 'submit')
     submitBtn.setAttribute('value', 'Submit')
 

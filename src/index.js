@@ -82,6 +82,7 @@ const ADV = document.getElementById('adventures')
     ADVCONT.append(parkState)
     ADVCONT.append(parkImage)
     
+    var element = document.getElementById("adventures-container").dataset.id = park.id
     renderForm()
     
   }
@@ -124,7 +125,12 @@ const ADV = document.getElementById('adventures')
     
     document.getElementById("adventures-container").appendChild(advForm)
     
+    const advList = document.createElement('ul')
+    advList.setAttribute("id", "advList")
+    document.getElementById("adventures-container").appendChild(advList)
     addEventListenerSubmit()
+
+
     
     
   }
@@ -133,13 +139,14 @@ const ADV = document.getElementById('adventures')
     const submitBtn = document.getElementById('submitBtn')
     submitBtn.addEventListener('click', function(event) {
       event.preventDefault()
-      postAdventure(event.target,submitBtn.parentNode[0].value,submitBtn.parentNode[1].value,submitBtn.parentNode[2].value )
+      postAdventure(event.target,submitBtn.parentNode[0].value,submitBtn.parentNode[1].value,submitBtn.parentNode[2].value, )
     }
     )
   }
   
-  function postAdventure(button,date, snippet, rating) {
+  function postAdventure(button, date, snippet, rating) {
 
+    const park_id = document.getElementById("adventures-container").dataset.id
     let adventureObj = {
       method: "POST",
       headers: {"Content-Type": "application/json", 
@@ -147,16 +154,37 @@ const ADV = document.getElementById('adventures')
       body: JSON.stringify({
         date: date,
         snippet: snippet,
-        rating:rating
+        rating: rating,
+        park_id: park_id
         
       })
           }
         fetch("http://localhost:3000/adventures", adventureObj)
       .then(resp =>resp.json())
-      .then(adventure=>{
-        renderAdventure(adventure)
+      .then(data=>{
+        renderAdventures(data)
       })
   }
+
+  function renderAdventures(data) {
+    console.log(data)
+    const adv = document.getElementById('advList')
+    const li = document.createElement('li')
+    li.innerText = data.snippet
+    adv.appendChild(li)
+
+  }
+
+  
+
+
+
+  // function renderAdventures(adventures) {
+  //   parks.forEach(adventure => {
+  //     renderPark(adventure)
+  //   }
+  //   )
+  // }
   
   // function renderAdventure(adventure) {
   //   const date = document.createElement("h2")

@@ -167,7 +167,6 @@ const ADV = document.getElementById('adventures')
   }
 
   function renderAdventures(data) {
-    console.log(data)
     const adv = document.getElementById('advList')
     const li = document.createElement('li')
     li.innerText = data.snippet
@@ -175,7 +174,9 @@ const ADV = document.getElementById('adventures')
 
   }
 
-  
+
+
+
 
 
 

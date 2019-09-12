@@ -5,6 +5,18 @@ class AdventuresController < ApplicationController
         render json: @adventures
     end
 
+    def create
+        p params
+        @adventure = Adventure.create!(date:params["date"], snippet:params["snippet"],rating:params["rating"], park_id:1, hiker_id:2)
+        # @adventure.save
+        render json: @adventure
+    end
+
+    # t.date "date"
+    # t.string "snippet"
+    # t.integer "rating"
+
+
     def show
         @adventure = adventure.find(params[:id])
         render json: @adventure

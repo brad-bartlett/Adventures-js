@@ -15,4 +15,7 @@ tallulah = Park.create(name: "Tallulah Gorge", state: "Georgia", img_url:"https:
 glacier = Park.create(name: "Glacier National Park", state: "Montana", img_url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD1xu5GOTrOfRIg3mK3euyqjc07J-b5t2cQ54Trdlq-Wmtz_YDcA")
 
 hiker1 = Hiker.create(name: "Ron")
+hiker2 = Hiker.create(name: "Cathy")
+hiker3 = Hiker.create(name: "Mike")
+hiker4 = Hiker.create(name: "Cheryl")
 

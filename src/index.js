@@ -57,31 +57,30 @@ const ADVCONT = document.querySelector('#adventures-container')
       })
   }
   
-function clearDiv() {
-  var e = document.getElementById("adventures-container")
-  var clearDiv = e.lastElementChild;  
-  while (clearDiv) { 
-      e.removeChild(clearDiv); 
-      clearDiv = e.lastElementChild; }
-}
-
+  
   function renderParkDetails(park) {
+    
     clearDiv()
     const parkName = document.createElement('h1')
     const parkState = document.createElement('h3')
     const parkImage = document.createElement('img');
-
+    
     parkName.textContent = park.name
     parkState.textContent = park.state
     parkImage.src = park.img_url
-
+    
     ADVCONT.append(parkName)
     ADVCONT.append(parkState)
     ADVCONT.append(parkImage)
     
   }
-
-
+  
+  function clearDiv() {
+    var element = document.getElementById("adventures-container")
+    while (element.firstChild) { 
+        element.removeChild(element.firstChild)
+  }}
+  
 
   // function renderForm() {
   //   const form = document.createElement("form")

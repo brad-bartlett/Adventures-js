@@ -9,7 +9,8 @@ const ADVCONT = document.querySelector('#adventures-container')
       fetchParks()
       addEventListener()
 
-    })
+    }
+    )
   
   
     function fetchParks() {
@@ -19,14 +20,16 @@ const ADVCONT = document.querySelector('#adventures-container')
       .then(parks => {
         console.log(parks)
         renderParks(parks)
-      })
+      }
+      )
   }
 
 
   function renderParks(parks) {
       parks.forEach(park => {
         renderPark(park)
-      })
+      }
+      )
     }
 
 
@@ -54,7 +57,8 @@ const ADVCONT = document.querySelector('#adventures-container')
       .then(resp => resp.json())
       .then(park => {
         renderParkDetails(park)
-      })
+      }
+      )
   }
   
   
@@ -79,7 +83,8 @@ const ADVCONT = document.querySelector('#adventures-container')
     var element = document.getElementById("adventures-container")
     while (element.firstChild) { 
         element.removeChild(element.firstChild)
-  }}
+  }
+}
   
 
   // function renderForm() {

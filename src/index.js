@@ -103,7 +103,7 @@ const ADV = document.getElementById('adventures')
     
     const dateInput = document.createElement("input")
     dateInput.setAttribute('type', "date")
-    dateInput.setAttribute('placeholder', "MM/DD/YYYY")
+    dateInput.setAttribute('placeholder', "YYYY/MM/DD")
     
     const snippetInput = document.createElement("input")
     snippetInput.setAttribute('type', 'string')
@@ -169,9 +169,17 @@ const ADV = document.getElementById('adventures')
   function renderAdventures(data) {
     console.log(data)
     const adv = document.getElementById('advList')
-    const li = document.createElement('li')
-    li.innerText = data.snippet
-    adv.appendChild(li)
+    const advDate = document.createElement('h2')
+    const advSnippet = document.createElement('h3')
+    const advRating = document.createElement('h2')
+    
+    advDate.textContent = "Date of adventure: " + data.date
+    advSnippet.textContent = data.snippet
+    advRating.textContent = "Your rating: " + data.rating + "/10"
+    
+    adv.appendChild(advDate)
+    adv.appendChild(advSnippet)
+    adv.appendChild(advRating)
 
   }
 

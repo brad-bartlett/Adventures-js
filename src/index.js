@@ -129,7 +129,7 @@ const ADV = document.getElementById('adventures')
     advList.setAttribute("id", "advList")
     document.getElementById("adventures-container").appendChild(advList)
     addEventListenerSubmit()
-
+    
 
     
     
@@ -139,7 +139,7 @@ const ADV = document.getElementById('adventures')
     const submitBtn = document.getElementById('submitBtn')
     submitBtn.addEventListener('click', function(event) {
       event.preventDefault()
-      postAdventure(submitBtn.parentNode[0].value, submitBtn.parentNode[1].value, submitBtn.parentNode[2].value, )
+      postAdventure(submitBtn.parentNode[0].value, submitBtn.parentNode[1].value, submitBtn.parentNode[2].value)
     }
     )
   }
@@ -183,7 +183,9 @@ const ADV = document.getElementById('adventures')
 
   }
 
-  
+  function renderDeleteButton() {
+    
+  }
 
 
 

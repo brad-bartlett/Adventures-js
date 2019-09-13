@@ -3,9 +3,9 @@ Hiker.delete_all
 Adventure.delete_all
 
 
-yosemite = Park.create(name: "Yosemite National Park", state: "California", img_url:"https://www.planetware.com/photos-large/USCA/california-yosemite-things-to-do-yosemite-falls.jpg")
-grand_canyon = Park.create(name: "The Grand Canyon", state: "Arizona", img_url:"https://mediad.publicbroadcasting.net/p/knau/files/styles/x_large/public/201809/shutterstock_97706066_1.jpg")
-    lake_tahoe = Park.create(name: "Lake Tahoe", state: "Nevada", img_url:"https://i.ytimg.com/vi/m1ewbghHOP0/maxresdefault.jpg")
+yosemite = Park.create(name: "Yosemite National Park", state: "California", img_url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5jZ1nBTZWfIiXPsnn0ZeS5C7VxOvVGlE1sld8W2N9NRCmu8sJ")
+grand_canyon = Park.create(name: "The Grand Canyon", state: "Arizona", img_url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq_Djh58Qjvx4RHXJzfqVh5fJCdii42a_sWLk7GowQg4VnYAN1")
+    lake_tahoe = Park.create(name: "Lake Tahoe", state: "Nevada", img_url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO04gL7Zt4CmVXS1VeodihUN8urL1368Xp24AlBlK_8Z_cBXT5ZQ")
     jackson_hole = Park.create(name: "Jackson Hole", state: "Wyoming", img_url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNLFxKLlpKyV5kJUb7rEq3_2Ch6Oq3IIDzqOJMRtr2_WgdS7_D1g")
 acadia = Park.create(name: "Acadia National Park", state: "Maine", img_url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ56sbEY8ciAJYmpUTWTAIIJIlbNOUblvGkl51GycxyFE5oLLphJg")
 chugach = Park.create(name: "Chugach State Park", state: "Alaska", img_url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9AtYNL6YzmEnHLq-JEv8ThOo3OobKBOhAw8Th3J1-Lguu4xjb")

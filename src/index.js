@@ -139,12 +139,12 @@ const ADV = document.getElementById('adventures')
     const submitBtn = document.getElementById('submitBtn')
     submitBtn.addEventListener('click', function(event) {
       event.preventDefault()
-      postAdventure(event.target,submitBtn.parentNode[0].value,submitBtn.parentNode[1].value,submitBtn.parentNode[2].value, )
+      postAdventure(submitBtn.parentNode[0].value, submitBtn.parentNode[1].value, submitBtn.parentNode[2].value, )
     }
     )
   }
   
-  function postAdventure(button, date, snippet, rating) {
+  function postAdventure(date, snippet, rating) {
 
     const park_id = document.getElementById("adventures-container").dataset.id
     let adventureObj = {
@@ -167,6 +167,7 @@ const ADV = document.getElementById('adventures')
   }
 
   function renderAdventures(data) {
+    console.log(data)
     const adv = document.getElementById('advList')
     const li = document.createElement('li')
     li.innerText = data.snippet
@@ -174,9 +175,7 @@ const ADV = document.getElementById('adventures')
 
   }
 
-
-
-
+  
 
 
 

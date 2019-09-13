@@ -81,7 +81,8 @@ const ADV = document.getElementById('adventures')
     ADVCONT.append(parkState)
     ADVCONT.append(parkImage)
     
-    var element = document.getElementById("adventures-container").dataset.id = park.id
+    document.getElementById("adventures-container").dataset.id = park.id
+    
     renderForm()
     
   }
@@ -139,6 +140,7 @@ const ADV = document.getElementById('adventures')
     submitBtn.addEventListener('click', function(event) {
       event.preventDefault()
       postAdventure(submitBtn.parentNode[0].value, submitBtn.parentNode[1].value, submitBtn.parentNode[2].value)
+      submitBtn.parentElement.reset()
     }
     )
   }
@@ -167,8 +169,9 @@ const ADV = document.getElementById('adventures')
   }
 
   function renderAdventures(data) {
-    // document.getElementById('advList').innerHTML = ""
+    clearAdv()
     console.log(data)
+    
     const adv = document.getElementById('advList')
     const advDate = document.createElement('h2')
     const advSnippet = document.createElement('h3')
@@ -195,6 +198,10 @@ const ADV = document.getElementById('adventures')
 
     }
 
+    function clearAdv() {
+      var element = document.getElementById("advList")
+    while (element.firstChild) { 
+      element.removeChild(element.firstChild)}}
 
 
   function deleteAdventure() {
@@ -213,7 +220,8 @@ const ADV = document.getElementById('adventures')
 
     }
 
-    function editAdventure() {
+    function editAdventure(date, snippet, rating) {
+      // byebug
       let adventureObj = {
         method: "PUT",
         headers: {"Content-Type": "application/json", 
@@ -232,25 +240,4 @@ const ADV = document.getElementById('adventures')
         })
     }
 
-
-  // function renderAdventures(adventures) {
-  //   parks.forEach(adventure => {
-  //     renderPark(adventure)
-  //   }
-  //   )
-  // }
-  
-  // function renderAdventure(adventure) {
-  //   const date = document.createElement("h2")
-  //   const snippet = document.createElement("h3")
-  //   const rating = document.createElement("h2")
-
-  //   date.textContent = adventure.date
-  //   snippet.textContent = adventure.snippet
-  //   rating.textContent = adventure.snippet
-
-  //   ADV.append(date)
-  //   ADV.append(snippet)
-  //   ADV.append(rating)
-  // }
 

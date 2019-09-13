@@ -1,7 +1,5 @@
 const parkUl = document.getElementById("list")
-
 let currentAdvId = null
-
 const ADVCONT = document.querySelector('#adventures-container')
 const ADV = document.getElementById('adventures')
 
@@ -171,7 +169,7 @@ const ADV = document.getElementById('adventures')
   function renderAdventures(data) {
     clearAdv()
     console.log(data)
-    
+
     const adv = document.getElementById('advList')
     const advDate = document.createElement('h2')
     const advSnippet = document.createElement('h3')

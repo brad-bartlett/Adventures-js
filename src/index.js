@@ -1,5 +1,6 @@
 const parkUl = document.getElementById("list")
 
+let currentAdvId = null
 
 const ADVCONT = document.querySelector('#adventures-container')
 const ADV = document.getElementById('adventures')
@@ -49,8 +50,6 @@ const ADV = document.getElementById('adventures')
       fetchParkDetails(event.target)
     }
     )
-
-
   }
 
   
@@ -162,11 +161,13 @@ const ADV = document.getElementById('adventures')
         fetch("http://localhost:3000/adventures", adventureObj)
       .then(resp =>resp.json())
       .then(data=>{
+        currentAdvId = data.id
         renderAdventures(data)
       })
   }
 
   function renderAdventures(data) {
+    // document.getElementById('advList').innerHTML = ""
     console.log(data)
     const adv = document.getElementById('advList')
     const advDate = document.createElement('h2')
@@ -181,12 +182,55 @@ const ADV = document.getElementById('adventures')
     adv.appendChild(advSnippet)
     adv.appendChild(advRating)
 
-  }
+    const deleteBtn = document.createElement('button')
+    deleteBtn.textContent = "Delete"
+    adv.appendChild(deleteBtn)
+    deleteBtn.addEventListener("click", deleteAdventure)
 
-  function renderDeleteButton() {
-    
-  }
+    const editBtn = document.createElement('button')
+    editBtn.textContent = "Edit"
+    adv.appendChild(editBtn)
+    editBtn.addEventListener("click", editAdventure)
 
+
+    }
+
+
+
+  function deleteAdventure() {
+    let adventureObj = {
+    method: "DELETE",
+    headers: {"Content-Type": "application/json", 
+    "Accept": "application/json"}
+    }
+
+    fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
+      .then(resp =>resp.json())
+      .then(data=>{
+        document.getElementById('advList').innerHTML = ""
+        currentAdvId = null
+      })
+
+    }
+
+    function editAdventure() {
+      let adventureObj = {
+        method: "PUT",
+        headers: {"Content-Type": "application/json", 
+        "Accept": "application/json"},
+        body: JSON.stringify({
+          date: date,
+          snippet: snippet,
+          rating: rating,
+          
+        })
+            }
+          fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
+        .then(resp =>resp.json())
+        .then(data=>{
+          renderAdventures(data)
+        })
+    }
 
 
   // function renderAdventures(adventures) {

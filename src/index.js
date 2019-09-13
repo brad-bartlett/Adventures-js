@@ -111,7 +111,7 @@ const ADV = document.getElementById('adventures')
     
     const ratingInput = document.createElement("input")
     ratingInput.setAttribute('type', 'integer')
-    ratingInput.setAttribute('placeholder', '1-10')
+    ratingInput.setAttribute('placeholder', 'Rating: 1-10')
     
     const submitBtn = document.createElement('input')
     submitBtn.id = ('submitBtn')

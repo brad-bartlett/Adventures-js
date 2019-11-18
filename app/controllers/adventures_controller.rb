@@ -27,10 +27,10 @@ class AdventuresController < ApplicationController
         render json: @adventure
     end
 
-private
+# private
 
-    def adventure_params   
-        params.require(:adventure).permit(:snippet, :rating, :hiker_id, :park_id)   
-    end   
+#     def adventure_params   
+#         params.require(:adventure).permit(:snippet, :rating, :hiker_id, :park_id)   
+#     end   
 
 end

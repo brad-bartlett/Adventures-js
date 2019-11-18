@@ -5,7 +5,7 @@ class HikersController < ApplicationController
     end
 
     def create   
-        @hiker = Hiker.new(product_params)
+        @hiker = Hiker.new(hiker_params)
     end
 
     private

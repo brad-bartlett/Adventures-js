@@ -17,7 +17,7 @@ class AdventuresController < ApplicationController
         render json: @adventure
     end
 
-    def edit   
+    def update   
         @adventure = Adventure.find(params[:id])   
         render json: @adventure
     end   

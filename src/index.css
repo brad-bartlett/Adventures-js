@@ -5,18 +5,20 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-  }
-  
-  #list {
+}
+
+#list {
     height: 80%;
     width: 8vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style-type: none
     
   }
 
   body {
     margin: 0;
+    padding: 15px
   }
   

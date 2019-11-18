@@ -3,15 +3,30 @@ let currentAdvId = null
 const ADVCONT = document.querySelector('#adventures-container')
 const ADV = document.getElementById('adventures')
 
-    document.addEventListener("DOMContentLoaded", ()=>{
-      
-      console.log('dom loaded')
-      fetchParks()
-      addEventListenerParks()
+
+
+
+
+document.addEventListener("DOMContentLoaded", ()=>{
   
-    }
-    )
+  console.log('dom loaded')
+  fetchParks()
+  addEventListenerParks()
+  renderLoginForm()
   
+}
+)
+
+  function renderLoginForm(){
+    const loginForm = document.createElement("form")
+    loginForm.setAttribute("id", "loginForm")
+    const nameInput = document.createElement("input")
+    nameInput.setAttribute('type', "name")
+    nameInput.setAttribute('placeholder', "Plese enter your name: ")
+    loginForm.appendChild(nameInput)
+    document.getElementById("header").appendChild(loginForm)
+
+  }
   
     function fetchParks() {
     // console.log('fetching')
@@ -54,6 +69,7 @@ const ADV = document.getElementById('adventures')
   
   function fetchParkDetails(singlePark) {
     const id = singlePark.dataset.id
+    console.log(singlePark)
     fetch('http://localhost:3000/parks/' + id)
     .then(resp => resp.json())
     .then(park => {

@@ -7,13 +7,13 @@ class AdventuresController < ApplicationController
 
     def create
 
-        @adventure = Adventure.create!(date:params["date"], snippet:params["snippet"],rating:params["rating"], park_id: params["park_id"], hiker_id:2)
+        @adventure = Adventure.create(date:params["date"], snippet:params["snippet"],rating:params["rating"], park_id: params["park_id"], hiker_id:2)
         render json: @adventure
     end
 
 
     def show
-        @adventure = adventure.find(params[:id])
+        @adventure = Adventure.find(params[:id])
         render json: @adventure
     end
 

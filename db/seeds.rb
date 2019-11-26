@@ -1,6 +1,6 @@
-Park.delete_all
-Hiker.delete_all
-Adventure.delete_all
+Park.destroy_all
+Hiker.destroy_all
+Adventure.destroy_all
 
 
 yosemite = Park.create(name: "Yosemite National Park", state: "California", img_url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5jZ1nBTZWfIiXPsnn0ZeS5C7VxOvVGlE1sld8W2N9NRCmu8sJ")

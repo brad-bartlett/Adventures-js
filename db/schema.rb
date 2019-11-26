@@ -16,11 +16,9 @@ ActiveRecord::Schema.define(version: 2019_09_09_172100) do
     t.date "date"
     t.string "snippet"
     t.integer "rating"
-    t.integer "hiker_id"
     t.integer "park_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["hiker_id"], name: "index_adventures_on_hiker_id"
     t.index ["park_id"], name: "index_adventures_on_park_id"
   end
 

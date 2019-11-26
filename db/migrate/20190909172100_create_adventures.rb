@@ -4,7 +4,6 @@ class CreateAdventures < ActiveRecord::Migration[5.2]
       t.date :date
       t.string :snippet
       t.integer :rating
-      t.references :hiker, index: true
       t.references :park, index: true
       t.timestamps
     end

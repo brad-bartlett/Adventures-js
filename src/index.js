@@ -7,7 +7,7 @@ const ADV = document.getElementById('adventures')
 
 
 
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
   
   console.log('dom loaded')
   fetchParks()
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 }
 )
 
-  function renderLoginForm(){
+  function renderLoginForm() {
     const loginForm = document.createElement("form")
     loginForm.setAttribute("id", "loginForm")
     const nameInput = document.createElement("input")
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   }
   
   function clearDiv() {
-    var element = document.getElementById("adventures-container")
+    let element = document.getElementById("adventures-container")
     while (element.firstChild) { 
       element.removeChild(element.firstChild)
     }
@@ -226,8 +226,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 
     fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
-      .then(resp =>resp.json())
-      .then(data=>{
+      .then(resp => resp.json())
+      .then(data => {
         document.getElementById('advList').innerHTML = ""
         currentAdvId = null
       })

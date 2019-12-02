@@ -1,6 +1,6 @@
 
   #list-panel {
-    height: 10vh;
+    height: 15vh;
     background: rgb(15, 85, 15);
     display: flex;
     justify-content: space-around;
@@ -11,14 +11,16 @@
     height: 80%;
     width: 8vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     list-style-type: none
     
   }
 
+
+
   body {
     margin: 0;
-    padding: 15px
+    padding: 20px
   }
   

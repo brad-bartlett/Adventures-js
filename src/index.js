@@ -51,6 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderPark(park) {
     
     const singlePark = document.createElement("li")
+    singlePark.style.border = '3px solid black'
+    singlePark.style.display = 'inline-grid'
+    singlePark.style.margin = '3px'
+    singlePark.style.height = '60px'
+    singlePark.style.width = '80px'
+    singlePark.style.textAlign = 'center'
     singlePark.dataset.id = park.id
     singlePark.textContent = park.name
     parkUl.appendChild(singlePark)

@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const snippetInput = document.createElement("input")
     snippetInput.setAttribute('type', 'string')
-    snippetInput.setAttribute('placeholder', "How was your adventure?")
+    snippetInput.setAttribute('placeholder', "How was it?")
     
     const ratingInput = document.createElement("input")
     ratingInput.setAttribute('type', 'integer')

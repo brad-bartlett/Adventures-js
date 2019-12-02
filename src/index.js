@@ -52,11 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const singlePark = document.createElement("li")
     singlePark.style.border = '3px solid black'
-    singlePark.style.display = 'inline-grid'
-    singlePark.style.margin = '3px'
+    singlePark.style.margin = '30px'
     singlePark.style.height = '60px'
-    singlePark.style.width = '80px'
+    singlePark.style.width = '100px'
     singlePark.style.textAlign = 'center'
+    singlePark.style.color = 'white'
     singlePark.dataset.id = park.id
     singlePark.textContent = park.name
     parkUl.appendChild(singlePark)
@@ -210,10 +210,10 @@ document.addEventListener("DOMContentLoaded", () => {
     adv.appendChild(deleteBtn)
     deleteBtn.addEventListener("click", deleteAdventure)
 
-    const editBtn = document.createElement('button')
-    editBtn.textContent = "Edit"
-    adv.appendChild(editBtn)
-    editBtn.addEventListener("click", editAdventure)
+    // const editBtn = document.createElement('button')
+    // editBtn.textContent = "Edit"
+    // adv.appendChild(editBtn)
+    // editBtn.addEventListener("click", editAdventure)
 
 
     }

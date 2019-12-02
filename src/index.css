@@ -20,6 +20,8 @@
 
 
   body {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWLhpkUo79vJpnBJTrGz8MZA1giJsZiBu49Wjt8lQU4V4oJUQ_&s");
+    background-size: cover;
     margin: 0;
     padding: 20px
   }

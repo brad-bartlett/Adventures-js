@@ -234,6 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
       .then(resp => resp.json())
       .then(data => {
+        console.log(data)
         document.getElementById('advList').innerHTML = ""
         currentAdvId = null
       })

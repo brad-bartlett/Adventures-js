@@ -165,6 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   }
   
+  class Adventure {
+    constructor(date, snippet, rating) {
+      this.date = date
+      this.snippet = snippet
+      this.rating = rating
+    }
+  }
   function postAdventure(date, snippet, rating) {
 
     const park_id = document.getElementById("adventures-container").dataset.id

@@ -23,6 +23,7 @@ class AdventuresController < ApplicationController
 
     def destroy   
         @adventure = Adventure.find(params[:id])
+        @adventure.destroy!
         render json: @adventure
     end
 

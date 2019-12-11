@@ -12,21 +12,21 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log('dom loaded')
   fetchParks()
   addEventListenerParks()
-  renderLoginForm()
   
+
 }
 )
 
-  function renderLoginForm() {
-    const loginForm = document.createElement("form")
-    loginForm.setAttribute("id", "loginForm")
-    const nameInput = document.createElement("input")
-    nameInput.setAttribute('type', "name")
-    nameInput.setAttribute('placeholder', "Plese enter your name: ")
-    loginForm.appendChild(nameInput)
-    document.getElementById("header").appendChild(loginForm)
+  // function renderLoginForm() {
+  //   const loginForm = document.createElement("form")
+  //   loginForm.setAttribute("id", "loginForm")
+  //   const nameInput = document.createElement("input")
+  //   nameInput.setAttribute('type', "name")
+  //   nameInput.setAttribute('placeholder', "Plese enter your name: ")
+  //   loginForm.appendChild(nameInput)
+  //   document.getElementById("header").appendChild(loginForm)
 
-  }
+  // }
   
     function fetchParks() {
     // console.log('fetching')
@@ -165,13 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   }
   
-  class Adventure {
-    constructor(date, snippet, rating) {
-      this.date = date
-      this.snippet = snippet
-      this.rating = rating
-    }
-  }
+
   function postAdventure(date, snippet, rating) {
 
     const park_id = document.getElementById("adventures-container").dataset.id
@@ -196,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderAdventures(data) {
-    clearAdv()
+    // clearAdv()
     console.log(data)
 
     const adv = document.getElementById('advList')
@@ -241,31 +235,31 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
       .then(resp => resp.json())
       .then(data => {
-        console.log(data)
+        // console.log(data)
         document.getElementById('advList').innerHTML = ""
-        currentAdvId = null
+        // currentAdvId = null
       })
 
     }
 
-    function editAdventure(date, snippet, rating) {
-      // byebug
-      let adventureObj = {
-        method: "PUT",
-        headers: {"Content-Type": "application/json", 
-        "Accept": "application/json"},
-        body: JSON.stringify({
-          date: date,
-          snippet: snippet,
-          rating: rating,
+    // function editAdventure(date, snippet, rating) {
+    //   // byebug
+    //   let adventureObj = {
+    //     method: "PUT",
+    //     headers: {"Content-Type": "application/json", 
+    //     "Accept": "application/json"},
+    //     body: JSON.stringify({
+    //       date: date,
+    //       snippet: snippet,
+    //       rating: rating,
           
-        })
-            }
-          fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
-        .then(resp =>resp.json())
-        .then(data=>{
-          renderAdventures(data)
-        })
-    }
+    //     })
+    //         }
+    //       fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
+    //     .then(resp =>resp.json())
+    //     .then(data=>{
+    //       renderAdventures(data)
+    //     })
+    // }
 
 

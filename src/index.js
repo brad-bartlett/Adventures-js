@@ -189,6 +189,14 @@ document.addEventListener("DOMContentLoaded", () => {
       })
   }
 
+  class Adventure {
+    constructor(date, snippet, rating) {
+    this.date = date;
+    this.snippet = snippet;
+    this.rating = rating;
+  }
+}
+
   function renderAdventures(data) {
     // clearAdv()
     console.log(data)
@@ -198,19 +206,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const advSnippet = document.createElement('h3')
     const advRating = document.createElement('h2')
     
+    const advLi = document.createElement('li')
+    advLi.id = data.id
+
     advDate.textContent = "Date of adventure: " + data.date
     advSnippet.textContent = data.snippet
     advRating.textContent = "Your rating: " + data.rating + "/10"
     
-    adv.appendChild(advDate)
-    adv.appendChild(advSnippet)
-    adv.appendChild(advRating)
+    
+    advLi.appendChild(advDate)
+    advLi.appendChild(advSnippet)
+    advLi.appendChild(advRating)
 
     const deleteBtn = document.createElement('button')
     deleteBtn.textContent = "Delete"
-    adv.appendChild(deleteBtn)
+    advLi.appendChild(deleteBtn)
     deleteBtn.addEventListener("click", deleteAdventure)
 
+    adv.appendChild(advLi)
     // const editBtn = document.createElement('button')
     // editBtn.textContent = "Edit"
     // adv.appendChild(editBtn)

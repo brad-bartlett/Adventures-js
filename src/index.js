@@ -220,8 +220,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function clearAdv() {
-      var element = document.getElementById("advList")
-    while (element.firstChild) { 
+      const element = document.getElementById("advList")
+      while (element.firstChild) { 
       element.removeChild(element.firstChild)}}
 
 

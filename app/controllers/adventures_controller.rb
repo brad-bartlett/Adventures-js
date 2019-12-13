@@ -13,7 +13,7 @@ class AdventuresController < ApplicationController
 
     def show
         @adventure = Adventure.find(params[:id])
-        render json: @adventure
+        render json: @adventure, status: 200
     end
 
     # def update   

@@ -165,8 +165,8 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   }
   
-class Adventure {
-  constructor (date, snippet, rating) {
+  class Adventure {
+    constructor(date, snippet, rating) {
     this.date = date;
     this.snippet = snippet;
     this.rating = rating;
@@ -196,13 +196,6 @@ class Adventure {
       })
   }
 
-  class Adventure {
-    constructor(date, snippet, rating) {
-    this.date = date;
-    this.snippet = snippet;
-    this.rating = rating;
-  }
-}
 
   function renderAdventures(data) {
     // clearAdv()

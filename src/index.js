@@ -165,6 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   }
   
+class Adventure {
+  constructor (date, snippet, rating) {
+    this.date = date;
+    this.snippet = snippet;
+    this.rating = rating;
+  }
+}
 
   function postAdventure(date, snippet, rating) {
 
@@ -206,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const advSnippet = document.createElement('h3')
     const advRating = document.createElement('h2')
     
-    const advLi = document.createElement('li')
+    const advLi = document.createElement('ul')
     advLi.id = data.id
 
     advDate.textContent = "Date of adventure: " + data.date

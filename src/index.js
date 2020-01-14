@@ -221,7 +221,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteBtn = document.createElement('button')
     deleteBtn.textContent = "Delete"
     advLi.appendChild(deleteBtn)
-    deleteBtn.addEventListener("click", deleteAdventure)
+    deleteBtn.addEventListener("click", function(e) {
+      deleteAdventure(e)
+    })
+
 
     adv.appendChild(advLi)
     // const editBtn = document.createElement('button')
@@ -238,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
       element.removeChild(element.firstChild)}}
 
 
-  function deleteAdventure() {
+  function deleteAdventure(e) {
     let adventureObj = {
     method: "DELETE",
     headers: {"Content-Type": "application/json", 
@@ -247,9 +250,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
       .then(resp => resp.json())
-      .then(data => {
+      .then(json => {
+        return json
+        let ul = document.getElementById(`${currentAdvId}`)
+        debugger
         // console.log(data)
-        document.getElementById('advList').innerHTML = ""
+        // document.getElementById('advList').innerHTML = ""
         // currentAdvId = null
       })
 

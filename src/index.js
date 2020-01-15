@@ -227,6 +227,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     adv.appendChild(advLi)
+    
+    
     // const editBtn = document.createElement('button')
     // editBtn.textContent = "Edit"
     // adv.appendChild(editBtn)
@@ -241,25 +243,21 @@ document.addEventListener("DOMContentLoaded", () => {
       element.removeChild(element.firstChild)}}
 
 
-  function deleteAdventure(e) {
-    let adventureObj = {
-    method: "DELETE",
-    headers: {"Content-Type": "application/json", 
-    "Accept": "application/json"}
-    }
-
-    fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
-      .then(resp => resp.json())
-      .then(json => {
-        return json
-        let ul = document.getElementById(`${currentAdvId}`)
-        debugger
-        // console.log(data)
-        // document.getElementById('advList').innerHTML = ""
-        // currentAdvId = null
-      })
-
-    }
+      function deleteAdventure(e) {
+        let adventureObj = {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json",
+        "Accept": "application/json"}
+        }
+        
+        fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
+          .then(resp => resp.json())
+          .then(json => {
+            let ul = document.getElementById(`${currentAdvId}`)
+            ul.innerHTML = ""
+            currentAdvId = null
+          })
+        }
 
     // function editAdventure(date, snippet, rating) {
     //   // byebug

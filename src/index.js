@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function renderAdventures(data) {
-    // clearAdv()
+    
     console.log(data)
 
     const adv = document.getElementById('advList')

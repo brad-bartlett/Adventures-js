@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   function renderParkDetails(park) {
     
-    clearDiv()
+    clearDiv();
     
     const parkName = document.createElement('h1')
     const parkState = document.createElement('h3')

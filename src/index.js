@@ -8,7 +8,7 @@ const ADV = document.getElementById('adventures')
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  
+  // makes sure dom content is loaded before rendering any function calls 
   console.log('dom loaded')
   fetchParks()
   addEventListenerParks()
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // }
   
     function fetchParks() {
-    // console.log('fetching')
+    // fetches all parks from index function in parks controller (rails)
     fetch('http://localhost:3000/parks/')
       .then(resp => resp.json())
       .then(parks => {
@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function renderParks(parks) {
+    //takes all parks and runs them through forEach function to render individual an park
       parks.forEach(park => {
         renderPark(park)
       }
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function renderPark(park) {
+    //creates li for each pak and appends each singlePark to that dom element
     
     const singlePark = document.createElement("li")
     singlePark.style.border = '3px solid black'
@@ -65,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function addEventListenerParks() {
+    //adds listener to each park li 
     parkUl.addEventListener('click', function(event) {
       fetchParkDetails(event.target)
     }
@@ -74,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   function fetchParkDetails(singlePark) {
+    //once clicked, ID is added to URL and fetched from show function in parks controller
     const id = singlePark.dataset.id
     console.log(singlePark)
     fetch('http://localhost:3000/parks/' + id)
@@ -86,6 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   function renderParkDetails(park) {
+    //If a previous park details has been clicked, div is cleared. 
+    //Elements are created for each piece of 
+    //data returned from fetch requests. Then form is rendered for 
+    //adventured to be input
     
     clearDiv();
     
@@ -108,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   function clearDiv() {
+    //adventure conatiner is cleared by removing first child
     let element = document.getElementById("adventures-container")
     while (element.firstChild) { 
       element.removeChild(element.firstChild)
@@ -117,7 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   function renderForm() {
-    
+    //form is rendered to input adventure
+
     const advForm = document.createElement("form")
     advForm.setAttribute("id", "adventureForm")
     
@@ -156,6 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   
   function addEventListenerSubmit() {
+    //listener attached to submit button on adventure form.
+    //prevent default used to keep page from refreshing
+    
     const submitBtn = document.getElementById('submitBtn')
     submitBtn.addEventListener('click', function(event) {
       event.preventDefault()
@@ -174,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
   function postAdventure(date, snippet, rating) {
+    //adventure is posted to database through create method in adventures controller
 
     const park_id = document.getElementById("adventures-container").dataset.id
     let adventureObj = {
@@ -188,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
       })
           }
+          
         fetch("http://localhost:3000/adventures", adventureObj)
       .then(resp =>resp.json())
       .then(data=>{
@@ -198,7 +213,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function renderAdventures(data) {
+
+    //elements created to render each data point returned
+    //advLi created to host adventure list
+    //ul of adventures attached to list
     
+
     console.log(data)
 
     const adv = document.getElementById('advList')
@@ -219,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
     advLi.appendChild(advRating)
 
     const deleteBtn = document.createElement('button')
+    //delete button appended to each adventure, event attached for later use
     deleteBtn.textContent = "Delete"
     advLi.appendChild(deleteBtn)
     deleteBtn.addEventListener("click", function(e) {
@@ -237,13 +258,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    function clearAdv() {
-      const element = document.getElementById("advList")
-      while (element.firstChild) { 
-      element.removeChild(element.firstChild)}}
+    // function clearAdv() {
+    //   const element = document.getElementById("advList")
+    //   while (element.firstChild) { 
+    //   element.removeChild(element.firstChild)}}
 
 
       function deleteAdventure(e) {
+        //currentAdvId is attached to URL, ran through delete function in adventures controller
+        //sets innerHTML of ul to an empty string, thus deleting it from visibility
+        //currentAdvId is set to null because the current adv has been deleted
         let adventureObj = {
         method: "DELETE",
         headers: {"Content-Type": "application/json",

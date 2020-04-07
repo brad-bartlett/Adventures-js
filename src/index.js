@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // makes sure dom content is loaded before rendering any function calls 
   console.log('dom loaded')
   fetchParks()
-  addEventListenerParks()
+  addEventListenerParks() 
   
 
 }

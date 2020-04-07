@@ -18166,3 +18166,84 @@ Processing by ParksController#show as */*
 Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.1ms)
 
 
+Started GET "/parks/" for ::1 at 2020-04-07 13:29:51 +1000
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/bradbartlett/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ParksController#index as */*
+  [1m[36mPark Load (0.6ms)[0m  [1m[34mSELECT "parks".* FROM "parks"[0m
+  ↳ app/controllers/parks_controller.rb:5
+Completed 200 OK in 15ms (Views: 7.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/parks/3" for ::1 at 2020-04-07 13:29:52 +1000
+Processing by ParksController#show as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mPark Load (0.3ms)[0m  [1m[34mSELECT  "parks".* FROM "parks" WHERE "parks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/parks_controller.rb:9
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/adventures" for ::1 at 2020-04-07 13:29:57 +1000
+Processing by AdventuresController#create as JSON
+  Parameters: {"date"=>"2020-04-06", "snippet"=>"sds", "rating"=>"3", "park_id"=>"3", "adventure"=>{"date"=>"2020-04-06", "snippet"=>"sds", "rating"=>"3", "park_id"=>"3"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[36mPark Load (0.1ms)[0m  [1m[34mSELECT  "parks".* FROM "parks" WHERE "parks"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[36mAdventure Create (1.4ms)[0m  [1m[32mINSERT INTO "adventures" ("date", "snippet", "rating", "park_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-06"], ["snippet", "sds"], ["rating", 3], ["park_id", 3], ["created_at", "2020-04-07 03:29:57.975069"], ["updated_at", "2020-04-07 03:29:57.975069"]]
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/adventures_controller.rb:9
+Completed 200 OK in 19ms (Views: 1.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/parks/1" for ::1 at 2020-04-07 13:30:07 +1000
+Processing by ParksController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPark Load (0.3ms)[0m  [1m[34mSELECT  "parks".* FROM "parks" WHERE "parks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/parks_controller.rb:9
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/adventures" for ::1 at 2020-04-07 13:30:13 +1000
+Processing by AdventuresController#create as JSON
+  Parameters: {"date"=>"2020-04-01", "snippet"=>"dwqw", "rating"=>"3", "park_id"=>"1", "adventure"=>{"date"=>"2020-04-01", "snippet"=>"dwqw", "rating"=>"3", "park_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[36mPark Load (0.3ms)[0m  [1m[34mSELECT  "parks".* FROM "parks" WHERE "parks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[36mAdventure Create (0.3ms)[0m  [1m[32mINSERT INTO "adventures" ("date", "snippet", "rating", "park_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-01"], ["snippet", "dwqw"], ["rating", 3], ["park_id", 1], ["created_at", "2020-04-07 03:30:13.166156"], ["updated_at", "2020-04-07 03:30:13.166156"]]
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/adventures_controller.rb:9
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/adventures" for ::1 at 2020-04-07 13:30:18 +1000
+Processing by AdventuresController#create as JSON
+  Parameters: {"date"=>"2020-04-03", "snippet"=>"asds", "rating"=>"2", "park_id"=>"1", "adventure"=>{"date"=>"2020-04-03", "snippet"=>"asds", "rating"=>"2", "park_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[36mPark Load (0.2ms)[0m  [1m[34mSELECT  "parks".* FROM "parks" WHERE "parks"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[36mAdventure Create (0.4ms)[0m  [1m[32mINSERT INTO "adventures" ("date", "snippet", "rating", "park_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["date", "2020-04-03"], ["snippet", "asds"], ["rating", 2], ["park_id", 1], ["created_at", "2020-04-07 03:30:18.940604"], ["updated_at", "2020-04-07 03:30:18.940604"]]
+  ↳ app/controllers/adventures_controller.rb:9
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/adventures_controller.rb:9
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started DELETE "/adventures/6" for ::1 at 2020-04-07 13:30:20 +1000
+Processing by AdventuresController#destroy as JSON
+  Parameters: {"id"=>"6", "adventure"=>{}}
+  [1m[36mAdventure Load (0.2ms)[0m  [1m[34mSELECT  "adventures".* FROM "adventures" WHERE "adventures"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/adventures_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/adventures_controller.rb:26
+  [1m[36mAdventure Destroy (0.6ms)[0m  [1m[31mDELETE FROM "adventures" WHERE "adventures"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/adventures_controller.rb:26
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/adventures_controller.rb:26
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 2.1ms)
+
+

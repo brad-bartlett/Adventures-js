@@ -1,17 +1,17 @@
-class HikersController < ApplicationController
-    def index
-        @hikers = Hiker.all
-        render json: @hikers
-    end
+# class HikersController < ApplicationController
+#     def index
+#         @hikers = Hiker.all
+#         render json: @hikers
+#     end
 
-    def create   
-        @hiker = Hiker.new(hiker_params)
-    end
+#     def create   
+#         @hiker = Hiker.new(hiker_params)
+#     end
 
-    private
+#     private
 
-    def hiker_params   
-        params.require(:hiker).permit(:name)   
-      end   
-end
+#     def hiker_params   
+#         params.require(:hiker).permit(:name)   
+#       end   
+# end
 

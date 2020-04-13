@@ -186,6 +186,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 }
 
+//tests if Adventure class is working properly. console log executes boolean of true
+var myadventure = new Adventure("2020-04-08", "Great!", 9);
+var a = myadventure instanceof Adventure;
+console.log(a)
+
   function postAdventure(date, snippet, rating) {
     //adventure is posted to database through create method in adventures controller
 

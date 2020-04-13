@@ -178,6 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     )
   }
   
+  //creation of class
   class Adventure {
     constructor(date, snippet, rating) {
     this.date = date;
@@ -187,8 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 //tests if Adventure class is working properly. console log executes boolean of true
-var myadventure = new Adventure("2020-04-08", "Great!", 9);
-var a = myadventure instanceof Adventure;
+const myadventure = new Adventure("2020-04-08", "Great!", 9);
+const a = myadventure instanceof Adventure;
 console.log(a)
 
   function postAdventure(date, snippet, rating) {

@@ -18565,3 +18565,12 @@ Processing by AdventuresController#create as JSON
 Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 2.5ms)
 
 
+Started GET "/parks/" for ::1 at 2020-04-13 15:33:23 +1000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/bradbartlett/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ParksController#index as */*
+  [1m[36mPark Load (0.6ms)[0m  [1m[34mSELECT "parks".* FROM "parks"[0m
+  ↳ app/controllers/parks_controller.rb:5
+Completed 200 OK in 18ms (Views: 8.8ms | ActiveRecord: 1.9ms)
+
+

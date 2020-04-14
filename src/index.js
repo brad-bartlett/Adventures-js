@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   
   
-  function renderForm() {
+  function renderForm() { 
     //form is rendered to input adventure
 
     const advForm = document.createElement("form")
@@ -187,7 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 }
 
-//tests if Adventure class is working properly. console log executes boolean of true
+//tests if Adventure class is working properly
+//console log executes boolean of true at line 193
 const myadventure = new Adventure("2020-04-08", "Great!", 9);
 const a = myadventure instanceof Adventure;
 console.log(a)

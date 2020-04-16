@@ -1,7 +1,6 @@
 const parkUl = document.getElementById("list")
-let currentAdvId = null
-const ADVCONT = document.querySelector('#adventures-container')
-const ADV = document.getElementById('adventures')
+const ADVCONT = document.querySelector('#adventures-container') //# denotes it getting the id of the element
+
 
 
 
@@ -12,10 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log('dom loaded')
   fetchParks()
   addEventListenerParks() 
+  addEventListenerSortParks()
   
 
 }
 )
+  //this could be used to give the illusion of authentication 
+  //instead of using a library like Passport, Auth0 or importing Firebase
 
   // function renderLoginForm() {
   //   const loginForm = document.createElement("form")
@@ -27,12 +29,54 @@ document.addEventListener("DOMContentLoaded", () => {
   //   document.getElementById("header").appendChild(loginForm)
 
   // }
-  
+
+  function addEventListenerSortParks(e) {
+    
+    document.querySelector('#sort').addEventListener('click', function(event) {
+      console.log("clicked")
+      clearDivParks()
+      fetch('http://localhost:3000/parks/')
+      .then(resp => resp.json())
+      .then(parks => {
+        parks.sort(function(a, b) {
+          var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+          var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+        
+          // names must be equal
+          return 0;
+        });
+        const listPanel = document.querySelector('#list-panel')
+        
+      })
+      }
+    
+    )
+  }
+
+  function clearDivParks() {
+    //adventure conatiner is cleared by removing first child
+    let element = document.querySelector("#list-panel")
+    while (element.firstChild) { 
+      element.removeChild(element.firstChild)
+    }
+  }
+
+
     function fetchParks() {
     // fetches all parks from index function in parks controller (rails)
     fetch('http://localhost:3000/parks/')
+    //passed through show method
+    //this returns a promise. promise is resolved then the json is extracted from the reponse
       .then(resp => resp.json())
       .then(parks => {
+        //parks was originally console logged for dev purposes, parks is passed in as argument 
+        //to renderParks function
         console.log(parks)
         renderParks(parks)
       }
@@ -41,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function renderParks(parks) {
-    //takes all parks and runs them through forEach function to render individual an park
+    //takes all parks and runs them through forEach function to render each individual park
       parks.forEach(park => {
         renderPark(park)
       }
@@ -78,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   
   function fetchParkDetails(singlePark) {
     //once clicked, ID is added to URL and fetched from show function in parks controller
+    //passed through index method
     const id = singlePark.dataset.id
     console.log(singlePark)
     fetch('http://localhost:3000/parks/' + id)
@@ -93,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //If a previous park details has been clicked, div is cleared. 
     //Elements are created for each piece of 
     //data returned from fetch requests. Then form is rendered for 
-    //adventured to be input
+    //adventure to be input
     
     clearDiv();
     
@@ -184,14 +229,14 @@ document.addEventListener("DOMContentLoaded", () => {
     this.date = date;
     this.snippet = snippet;
     this.rating = rating;
+    }
   }
-}
-
 //tests if Adventure class is working properly
 //console log executes boolean of true at line 193
 const myadventure = new Adventure("2020-04-08", "Great!", 9);
 const a = myadventure instanceof Adventure;
 console.log(a)
+
 
   function postAdventure(date, snippet, rating) {
     //adventure is posted to database through create method in adventures controller
@@ -208,8 +253,8 @@ console.log(a)
         park_id: park_id
         
       })
-          }
-          
+    }
+        
         fetch("http://localhost:3000/adventures", adventureObj)
       .then(resp =>resp.json())
       .then(data=>{
@@ -225,7 +270,6 @@ console.log(a)
     //advLi created to host adventure list
     //ul of adventures attached to list
     
-
     console.log(data)
 
     const adv = document.getElementById('advList')
@@ -249,10 +293,10 @@ console.log(a)
     //delete button appended to each adventure, event attached for later use
     deleteBtn.textContent = "Delete"
     advLi.appendChild(deleteBtn)
+    //added event listener inline in function instead of making seperate function like done above
     deleteBtn.addEventListener("click", function(e) {
-      deleteAdventure(e)
+      deleteAdventure()
     })
-
 
     adv.appendChild(advLi)
     
@@ -271,10 +315,10 @@ console.log(a)
     //   element.removeChild(element.firstChild)}}
 
 
-      function deleteAdventure(e) {
+      function deleteAdventure() {
         //currentAdvId is attached to URL, ran through delete function in adventures controller
         //sets innerHTML of ul to an empty string, thus deleting it from visibility
-        //currentAdvId is set to null because the current adv has been deleted
+        
         let adventureObj = {
         method: "DELETE",
         headers: {"Content-Type": "application/json",
@@ -282,11 +326,12 @@ console.log(a)
         }
         
         fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
+        //passed through destroy controller
           .then(resp => resp.json())
-          .then(json => {
+          .then(() => {
             let ul = document.getElementById(`${currentAdvId}`)
             ul.innerHTML = ""
-            currentAdvId = null
+            // currentAdvId = null
           })
         }
 

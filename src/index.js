@@ -16,19 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 }
 )
-  //this could be used to give the illusion of authentication 
-  //instead of using a library like Passport, Auth0 or importing Firebase
 
-  // function renderLoginForm() {
-  //   const loginForm = document.createElement("form")
-  //   loginForm.setAttribute("id", "loginForm")
-  //   const nameInput = document.createElement("input")
-  //   nameInput.setAttribute('type', "name")
-  //   nameInput.setAttribute('placeholder', "Plese enter your name: ")
-  //   loginForm.appendChild(nameInput)
-  //   document.getElementById("header").appendChild(loginForm)
-
-  // }
 
   function addEventListenerSortParks(e) {
     
@@ -222,20 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     )
   }
-  
-  //creation of class
-  class Adventure {
-    constructor(date, snippet, rating) {
-    this.date = date;
-    this.snippet = snippet;
-    this.rating = rating;
-    }
-  }
-//tests if Adventure class is working properly
-//console log executes boolean of true at line 193
-const myadventure = new Adventure("2020-04-08", "Great!", 9);
-const a = myadventure instanceof Adventure;
-console.log(a)
 
 
   function postAdventure(date, snippet, rating) {
@@ -301,18 +275,22 @@ console.log(a)
     adv.appendChild(advLi)
     
     
-    // const editBtn = document.createElement('button')
-    // editBtn.textContent = "Edit"
-    // adv.appendChild(editBtn)
-    // editBtn.addEventListener("click", editAdventure)
-
-
     }
 
-    // function clearAdv() {
-    //   const element = document.getElementById("advList")
-    //   while (element.firstChild) { 
-    //   element.removeChild(element.firstChild)}}
+      //creation of class
+  class Adventure {
+    //runs each time we make a new adventure
+    constructor(date, snippet, rating) {
+    this.date = date;
+    this.snippet = snippet;
+    this.rating = rating;
+    }
+  }
+//tests if Adventure class is working properly
+//console log executes boolean of true at line 193
+const myadventure = new Adventure("2020-04-08", "Great!", 9);
+const a = myadventure instanceof Adventure;
+console.log(a)
 
 
       function deleteAdventure() {
@@ -334,25 +312,5 @@ console.log(a)
             // currentAdvId = null
           })
         }
-
-    // function editAdventure(date, snippet, rating) {
-    //   // byebug
-    //   let adventureObj = {
-    //     method: "PUT",
-    //     headers: {"Content-Type": "application/json", 
-    //     "Accept": "application/json"},
-    //     body: JSON.stringify({
-    //       date: date,
-    //       snippet: snippet,
-    //       rating: rating,
-          
-    //     })
-    //         }
-    //       fetch(`http://localhost:3000/adventures/${currentAdvId}`, adventureObj)
-    //     .then(resp =>resp.json())
-    //     .then(data=>{
-    //       renderAdventures(data)
-    //     })
-    // }
 
 

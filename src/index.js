@@ -17,35 +17,50 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 )
 
+class CurrentDate {
+  constructor(targetId) {
+    this.targetEl = document.getElementById(targetId)
+    this.targetEl.innerText = this.render()
+    
+    setInterval(() => {
+      this.targetElement.innerText = this.render()
+
+    }, 100000)}
+
+    render() {
+      const currentDate = new Date().toLocaleDateString("en-US")
+      return `The current date is ${currentDate}`
+    
+    }
+  }
+  
+  new CurrentDate("date")
 
   function addEventListenerSortParks(e) {
     
-    document.querySelector('#sort').addEventListener('click', function(event) {
+    document.querySelector('#sort').addEventListener('click', function(e) {
       console.log("clicked")
       clearDivParks()
       fetch('http://localhost:3000/parks/')
       .then(resp => resp.json())
       .then(parks => {
         parks.sort(function(a, b) {
-          var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-          var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+          var nameA = a.name.toUpperCase(); 
+          var nameB = b.name.toUpperCase(); 
           if (nameA < nameB) {
             return -1;
           }
           if (nameA > nameB) {
             return 1;
           }
-        
-          // names must be equal
           return 0;
         });
         const listPanel = document.querySelector('#list-panel')
         
+        })
+        
       })
       }
-    
-    )
-  }
 
   function clearDivParks() {
     //adventure conatiner is cleared by removing first child
@@ -277,21 +292,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     }
 
-      //creation of class
-  class Adventure {
-    //runs each time we make a new adventure
-    constructor(date, snippet, rating) {
-    this.date = date;
-    this.snippet = snippet;
-    this.rating = rating;
-    }
-  }
-//tests if Adventure class is working properly
-//console log executes boolean of true at line 193
-const myadventure = new Adventure("2020-04-08", "Great!", 9);
-const a = myadventure instanceof Adventure;
-console.log(a)
-
 
       function deleteAdventure() {
         //currentAdvId is attached to URL, ran through delete function in adventures controller
@@ -309,7 +309,7 @@ console.log(a)
           .then(() => {
             let ul = document.getElementById(`${currentAdvId}`)
             ul.innerHTML = ""
-            // currentAdvId = null
+            
           })
         }
 

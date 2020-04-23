@@ -20330,3 +20330,19 @@ Processing by ParksController#index as */*
 Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/parks/" for ::1 at 2020-04-23 12:20:29 +1000
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/bradbartlett/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ParksController#index as */*
+  [1m[36mPark Load (0.6ms)[0m  [1m[34mSELECT "parks".* FROM "parks"[0m
+  ↳ app/controllers/parks_controller.rb:5
+Completed 200 OK in 15ms (Views: 10.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/parks/" for ::1 at 2020-04-23 12:20:57 +1000
+Processing by ParksController#index as */*
+  [1m[36mPark Load (1.2ms)[0m  [1m[34mSELECT "parks".* FROM "parks"[0m
+  ↳ app/controllers/parks_controller.rb:5
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 1.2ms)
+
+

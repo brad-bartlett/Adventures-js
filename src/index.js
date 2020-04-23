@@ -29,7 +29,7 @@ class CurrentDate {
 
     render() {
       const currentDate = new Date().toLocaleDateString("en-US")
-      return `The current date is ${currentDate}`
+      return `Today's date is ${currentDate}`
     
     }
   }

@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
 )
 
 class CurrentDate {
-  constructor(targetId) {
-    this.targetEl = document.getElementById(targetId)
-    this.targetEl.innerText = this.render()
+  constructor(target) {
+    this.targetElement = document.getElementById(target)
+    this.targetElement.innerText = this.render()
     
     setInterval(() => {
       this.targetElement.innerText = this.render()

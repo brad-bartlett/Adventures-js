@@ -4,8 +4,6 @@ const ADVCONT = document.querySelector('#adventures-container') //# denotes it g
 
 
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   // makes sure dom content is loaded before rendering any function calls 
   console.log('dom loaded')
@@ -25,11 +23,13 @@ class CurrentDate {
     setInterval(() => {
       this.targetElement.innerText = this.render()
 
-    }, 100000)}
+    }, 10000000)}
 
     render() {
       const currentDate = new Date().toLocaleDateString("en-US")
+      console.log(currentDate)
       return `Today's date is ${currentDate}`
+      
     
     }
   }
@@ -56,6 +56,7 @@ class CurrentDate {
           return 0;
         });
         const listPanel = document.querySelector('#list-panel')
+        
         
         })
         
